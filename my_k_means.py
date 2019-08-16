@@ -27,7 +27,7 @@ plt.show()
 
 #定义基本函数
 #随机初始化聚类中心
-#cluster是一个[K,M]的矩阵，K是聚类中心的个数，M是样本的维度，索引cluster[i:]表示第i类聚类中心的坐标
+#cluster是一个[K,M]的矩阵，K是聚类中心的个数，M是样本的维度，索引cluster[i,:]表示第i类聚类中心的坐标
 #dataset是一个[N,M]的矩阵，N是样本的个数，M是样本的维度
 def randomInicialize(K,M,dataset):
     
@@ -58,8 +58,8 @@ def distance(x1,x2):
         return distance
 
 #更新所属类别的索引表
-#clusterAssemble是一个[N,1]的矩阵，N是样本的个数，记录着每个样本所属的聚类中心，索引clusterAssemble[i:]表示dataset[i:]所属的类
-#cluster是一个[K,M]的矩阵，K是聚类中心的个数，M是样本的维度，索引cluster[i:]表示第i类聚类中心的坐标
+#clusterAssemble是一个[N,1]的矩阵，N是样本的个数，记录着每个样本所属的聚类中心，索引clusterAssemble[i,:]表示dataset[i,:]所属的类
+#cluster是一个[K,M]的矩阵，K是聚类中心的个数，M是样本的维度，索引cluster[i,:]表示第i类聚类中心的坐标
 #dataset是一个[N,M]的矩阵，N是样本的个数，M是样本的维度
 def classificationDataset(cluster,dataset):
     K = cluster.shape[0]
@@ -85,8 +85,8 @@ def classificationDataset(cluster,dataset):
 
 
 #更新聚类中心
-#clusterAssemble是一个[N,1]的矩阵，N是样本的个数，记录着每个样本所属的聚类中心，索引clusterAssemble[i:]表示dataset[i:]所属的类
-#cluster是一个[K,M]的矩阵，K是聚类中心的个数，M是样本的维度，索引cluster[i:]表示第i类的坐标
+#clusterAssemble是一个[N,1]的矩阵，N是样本的个数，记录着每个样本所属的聚类中心，索引clusterAssemble[i,:]表示dataset[i:]所属的类
+#cluster是一个[K,M]的矩阵，K是聚类中心的个数，M是样本的维度，索引cluster[i,:]表示第i类的坐标
 #dataset是一个[N,M]的矩阵，N是样本的个数，M是样本的维度
 def update_center(clusterAssemble,cluster,dataset):    
     
